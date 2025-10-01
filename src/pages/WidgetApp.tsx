@@ -68,7 +68,8 @@ const WidgetApp: React.FC = () => {
             exists: true,
             verified: true, // Assume verified for embedded mode
             active: true,
-            loading: false
+            loading: false,
+            showOffline: false
           });
 
           // Set minimal default settings, script config will override everything
@@ -106,7 +107,8 @@ const WidgetApp: React.FC = () => {
             exists: true,
             verified: false,
             active: true,
-            loading: false
+            loading: false,
+            showOffline: false
           });
 
           // Use null config data for fallback mode
@@ -121,7 +123,8 @@ const WidgetApp: React.FC = () => {
           exists: true,
           verified: isVerified,
           active: statusData.is_active,
-          loading: false
+          loading: false,
+          showOffline: false
         });
 
         // Use already fetched config data (no additional API call)
@@ -290,7 +293,7 @@ const WidgetApp: React.FC = () => {
             <div className="text-gray-400 text-6xl mb-4">💬</div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Chat Offline</h2>
             <p className="text-gray-600">
-              {settings?.config?.offline_message ||
+              {settings?.offlineMessage ||
                "We're currently offline. Please try again later."}
             </p>
           </div>

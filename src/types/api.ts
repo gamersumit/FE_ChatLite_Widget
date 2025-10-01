@@ -144,6 +144,7 @@ export interface WidgetSettings {
   welcomeMessage?: string;
   placeholder?: string;
   title?: string;
+  offlineMessage?: string;
 }
 
 // Personalization types

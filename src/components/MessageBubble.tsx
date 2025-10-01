@@ -1,5 +1,4 @@
 import React from 'react';
-import { Check, CheckCheck, AlertCircle, Clock } from 'lucide-react';
 import type { Message } from '../types/api';
 
 interface MessageBubbleProps {
@@ -20,23 +19,6 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message, primaryColor = '
     }).format(timestamp);
   };
 
-  // Get status icon for user messages
-  const getStatusIcon = () => {
-    if (!isUser) return null;
-
-    switch (message.status) {
-      case 'sending':
-        return <Clock className="w-3 h-3 text-gray-400" />;
-      case 'sent':
-        return <Check className="w-3 h-3 text-gray-400" />;
-      case 'delivered':
-        return <CheckCheck className="w-3 h-3 text-blue-500" />;
-      case 'error':
-        return <AlertCircle className="w-3 h-3 text-red-500" />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <div
